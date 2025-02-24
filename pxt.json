@@ -1,0 +1,44 @@
+{
+    "name": "MakeCode Football",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "arcade-background-scroll": "github:microsoft/arcade-background-scroll#6cfbf925b9a4d5ddf3e1078e6cf6ca6a1aebb301",
+        "arcade-fancy-text": "github:riknoll/arcade-fancy-text#v0.0.13",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0",
+        "Modes by Unique": "github:projectsbyunique/modes#v1.1.0",
+        "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0",
+        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.2.1",
+        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.1",
+        "Uniquedev-fx-brohann": "github:Brohann3214/uniquedev-fx-brohann#961245619661779ead280d7c0386ac612350db47",
+        "Stats": "github:UnsignedArduino/Stats#758e35856bd5565e5d0e25c95cccfac79b7fc168",
+        "teams-updated": "github:projectsbyunique/teams-updated#0d707c20b630579d8d78c709dbe63143c77ef8a9",
+        "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.0.1",
+        "BetterSettings": "github:sargedev/bettersettings#2023.5.1"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "images.g.jres",
+        "images.g.ts",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v1.12.56",
+        "tag": "v1.12.56",
+        "commits": "https://github.com/microsoft/pxt-arcade/commits/415ef2df2ac233e8d214fef5f4ea26f2f5de232a",
+        "target": "2.0.19",
+        "pxt": "8.5.67",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}
