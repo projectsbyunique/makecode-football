@@ -88,6 +88,7 @@ function start_screen () {
         teamselectSpritePlayer.setPosition(125, 65)
         star_ratings.setPosition(125, 104)
         myMenu.onSelectionChanged(function (selection, selectedIndex) {
+            music.play(music.createSoundEffect(WaveShape.Sine, 200, 485, 255, 0, 150, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
             myMenu.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 15)
             myMenu.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, 1)
             TeamSelectName.setText(Teams.getTeamProperty(selectedIndex, Teams.TeamProperty.TeamAbbreviation) as string)
@@ -124,6 +125,7 @@ function start_screen () {
             }
         })
         myMenu.onButtonPressed(controller.A, function (selection, selectedIndex) {
+            music.play(music.createSoundEffect(WaveShape.Square, 440, 445, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
             sprites.destroy(myMenu)
             sprites.destroy(star_ratings)
             sprites.destroy(TeamSelectName)
@@ -182,11 +184,13 @@ function start_screen () {
             recordText.setPosition(80, 5)
             console.log(blockSettings.readStringArray("schedule"))
             scheduleMenu.onSelectionChanged(function (selection, selectedIndex) {
+                music.play(music.createSoundEffect(WaveShape.Sine, 200, 485, 255, 0, 150, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
                 // parseFloat(schedule[selectedIndex].split("/")[0]
                 scheduleMenu.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, Teams.getTeamProperty(parseFloat(schedule[selectedIndex].split("/")[0]), Teams.TeamProperty.MainColor) as number)
                 scheduleMenu.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, Teams.getTeamProperty(parseFloat(schedule[selectedIndex].split("/")[0]), Teams.TeamProperty.SecondaryColor) as number)
             })
             scheduleMenu.onButtonPressed(controller.A, function (selection, selectedIndex) {
+                music.play(music.createSoundEffect(WaveShape.Square, 440, 445, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
                 spriteutils.moveTo(scheduleMenu, spriteutils.pos(80, 155), 200, false)
                 if (parseFloat(schedule[selectedIndex].split("/")[4]) == 0) {
                     if (parseFloat(schedule[selectedIndex].split("/")[1]) == 1) {
@@ -207,6 +211,7 @@ homeTeamEnum2 = CurrentTeam
                     pauseUntil(() => !(controller.anyButton.isPressed()))
                     pauseUntil(() => controller.anyButton.isPressed())
                     if (controller.A.isPressed()) {
+                        music.play(music.createSoundEffect(WaveShape.Square, 440, 445, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
                         if (parseFloat(schedule[selectedIndex].split("/")[1]) == 1) {
                             timer.background(function () {
                                 start_game(CurrentTeam, parseFloat(schedule[selectedIndex].split("/")[0]))
@@ -219,6 +224,7 @@ homeTeamEnum2 = CurrentTeam
                             return
                         }
                     } else if (controller.B.isPressed()) {
+                        music.play(music.createSoundEffect(WaveShape.Square, 440, 445, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
                         sprites.destroy(awayTeamTextSprite)
                         sprites.destroy(homeTeamTextSprite)
                         scheduleMenu.setTitle("SCHEDULE")
