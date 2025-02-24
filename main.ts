@@ -204,7 +204,9 @@ homeTeamEnum2 = CurrentTeam
                     homeTeamTextSprite.setPosition(130, 60)
                     fancyText.setText(recordText, "")
                     scheduleMenu.setTitle("Press B to go back")
-                    scheduleMenu.onButtonPressed(controller.A, function (selection, selectedIndex) {
+                    pauseUntil(() => !(controller.anyButton.isPressed()))
+                    pauseUntil(() => controller.anyButton.isPressed())
+                    if (controller.A.isPressed()) {
                         if (parseFloat(schedule[selectedIndex].split("/")[1]) == 1) {
                             timer.background(function () {
                                 start_game(CurrentTeam, parseFloat(schedule[selectedIndex].split("/")[0]))
@@ -216,14 +218,13 @@ homeTeamEnum2 = CurrentTeam
                             })
                             return
                         }
-                    })
-                    scheduleMenu.onButtonPressed(controller.B, function (selection, selectedIndex) {
+                    } else if (controller.B.isPressed()) {
                         sprites.destroy(awayTeamTextSprite)
                         sprites.destroy(homeTeamTextSprite)
                         scheduleMenu.setTitle("SCHEDULE")
                         spriteutils.moveTo(scheduleMenu, spriteutils.pos(80, 60), 200, false)
                         fancyText.setText(recordText, "" + Teams.getTeamProperty(CurrentTeam, Teams.TeamProperty.TeamAbbreviation) + ": " + ("(" + blockSettings.readNumberArray("record")[0] + "-" + blockSettings.readNumberArray("record")[1] + "-" + blockSettings.readNumberArray("record")[2] + ")"))
-                    })
+                    }
                 } else {
                 	
                 }
@@ -335,7 +336,9 @@ homeTeamEnum2 = CurrentTeam
                 homeTeamTextSprite.setPosition(130, 60)
                 fancyText.setText(recordText, "")
                 scheduleMenu.setTitle("Press B to go back")
-                scheduleMenu.onButtonPressed(controller.A, function (selection, selectedIndex) {
+                pauseUntil(() => !(controller.anyButton.isPressed()))
+                pauseUntil(() => controller.anyButton.isPressed())
+                if (controller.A.isPressed()) {
                     if (parseFloat(schedule[selectedIndex].split("/")[1]) == 1) {
                         timer.background(function () {
                             start_game(CurrentTeam, parseFloat(schedule[selectedIndex].split("/")[0]))
@@ -347,14 +350,13 @@ homeTeamEnum2 = CurrentTeam
                         })
                         return
                     }
-                })
-                scheduleMenu.onButtonPressed(controller.B, function (selection, selectedIndex) {
+                } else if (controller.B.isPressed()) {
                     sprites.destroy(awayTeamTextSprite)
                     sprites.destroy(homeTeamTextSprite)
                     scheduleMenu.setTitle("SCHEDULE")
                     spriteutils.moveTo(scheduleMenu, spriteutils.pos(80, 60), 200, false)
                     fancyText.setText(recordText, "" + Teams.getTeamProperty(CurrentTeam, Teams.TeamProperty.TeamAbbreviation) + ": " + ("(" + blockSettings.readNumberArray("record")[0] + "-" + blockSettings.readNumberArray("record")[1] + "-" + blockSettings.readNumberArray("record")[2] + ")"))
-                })
+                }
             } else {
             	
             }
@@ -1670,22 +1672,22 @@ let fumbleOdds = 0
 let interceptionOdds = 0
 let gameClock = 0
 let _quarter = 0
-let awayTeamEnum2: number = null
-let homeTeamEnum2: number = null
-let value15 = null
-let schedule: string[] = []
-let game_seconds = 0
-let game_minutes = 0
-let opponentTeam: Teams.TeamEnum = null
-let CurrentTeam = 0
-let playResult = ""
-let opponentYardage = 0
-let elapsed = 0
-let newMinutes = 0
-let newSeconds = 0
-let totalSeconds22 = 0
-let totalSeconds2 = 0
 let remainingSeconds = 0
+let totalSeconds2 = 0
+let totalSeconds22 = 0
+let newSeconds = 0
+let newMinutes = 0
+let elapsed = 0
+let opponentYardage = 0
+let playResult = ""
+let CurrentTeam = 0
+let opponentTeam: Teams.TeamEnum = null
+let game_minutes = 0
+let game_seconds = 0
+let schedule: string[] = []
+let value15 = null
+let homeTeamEnum2: number = null
+let awayTeamEnum2: number = null
 _quarter = 1
 gameClock = 90
 opponentYardage = 25
